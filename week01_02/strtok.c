@@ -32,8 +32,11 @@ int main(void) {
 }
 
 char *my_strtok(char *str, const char *delim) {
-  if (my_strtok_state.current_char == NULL) {
-    my_strtok_state.current_char = str;
+  static char *next;
+  char *str_start = str;
+
+  if (str != NULL) {
+    next = str;
   }
 
   while (*str) {

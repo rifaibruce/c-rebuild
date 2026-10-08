@@ -1,17 +1,33 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-struct Strtok_State {
-  char *current_char;
-};
-struct Strtok_State my_strtok_state = {0};
 char *my_strtok(char *str, const char *delim);
 
 int main(void) {
   printf("Starting\n");
-  char *token = my_strtok("Hello World", " ");
+  char s[] = " , Hello Wor,ld";
+  char s_org[] = " , Hello Wor,ld";
+
+  char *token = my_strtok(s, " ,");
+  char *token_org = strtok(s_org, " ,");
+  assert(strcmp(token, token_org) == 0);
+
+  token = my_strtok(NULL, " ,");
+  token_org = strtok(NULL, " ,");
+  assert(strcmp(token, token_org) == 0);
+
   printf("%s\n", token);
+  token = my_strtok(NULL, " ,");
+  token_org = strtok(NULL, " ,");
+  assert(strcmp(token, token_org) == 0);
+
+  printf("%s\n", token);
+  token = my_strtok(NULL, " ,");
+  token_org = strtok(NULL, " ,");
+  assert(strcmp(token, token_org) == 0);
+
   return 0;
 }
 

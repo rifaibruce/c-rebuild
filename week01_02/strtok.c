@@ -39,14 +39,30 @@ char *my_strtok(char *str, const char *delim) {
     next = str;
   }
 
-  while (*str) {
-    if (*str == *delim) {
-      *str = '\0';
-      str++;
-      my_strtok_state.current_char = str;
-      return str;
-    }
-    str++;
+  // skip any delim
+
+  if (*next == '\0') {
+    return NULL;
   }
-  return str;
+
+  // Mark the start of the token
+  char *start_address = next;
+
+  // advance until delim or null
+  // If delim overwrite it with '\0' and move past it, return start of token
+  while (*next) {
+    for (size_t i = 0; i < strlen(delim); i++) {
+      if (*next == delim[i]) {
+        if (next == str_start) {
+          next++;
+          continue;
+        }
+        *next = '\0';
+        next++;
+        return start_address;
+      }
+    }
+    next++;
+  }
+  return start_address;
 }

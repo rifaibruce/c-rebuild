@@ -20,6 +20,7 @@ in C often run silently without it.
 | Folder | What's in it | Status |
 | --- | --- | --- |
 | `week01/` | `strlen` (index and pointer versions), `strcpy`, assert-based tests | Done |
+| `week02/` | `strtok` (string tokenization) | Done|
 
 ### week01: strings
 

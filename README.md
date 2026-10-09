@@ -33,7 +33,7 @@ in C often run silently without it.
 
 ## Planned
 
-- `strtok`, structs, and Makefiles
+- structs, and Makefiles
 - Dynamic array and hash table
 - Unix shell: `fork`, `exec`, pipes, and redirection
 - HTTP server on raw sockets
